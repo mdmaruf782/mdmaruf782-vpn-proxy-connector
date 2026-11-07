@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  :root { --bg:#0f1720; --card:#17212c; --text:#e8eef4; --muted:#8a9aab; --green:#1a9d55; --red:#d64545; }
+  * { box-sizing:border-box; }
+  body { margin:0; width:300px; background:var(--bg); color:var(--text); font:14px/1.4 system-ui, sans-serif; }
+  .wrap { padding:16px; }
+  header { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+  h1 { font-size:15px; margin:0; font-weight:600; }
+  .status { display:flex; align-items:center; gap:6px; color:var(--muted); font-size:12px; }
+  .dot { width:9px; height:9px; border-radius:50%; background:var(--red); }
+  .dot.on { background:var(--green); }
+  button#toggle { width:100%; padding:12px; border:0; border-radius:10px; background:var(--green); color:#fff; font-size:15px; font-weight:600; cursor:pointer; }
+  button#toggle.on { background:var(--red); }
+  label { display:block; margin:14px 0 4px; color:var(--muted); font-size:12px; }
+  select { width:100%; padding:9px; border-radius:8px; border:1px solid #2b3a49; background:var(--card); color:var(--text); }
+  .ip { margin-top:14px; padding:10px; background:var(--card); border-radius:8px; display:flex; justify-content:space-between; align-items:center; font-size:13px; }
+  .ip button { background:none; border:0; color:#6cb2ff; cursor:pointer; font-size:12px; }
+  #warn, #msg { color:#ffb454; font-size:12px; margin-top:8px; }
+  footer { margin-top:12px; text-align:center; }
+  footer button { background:none; border:0; color:var(--muted); cursor:pointer; font-size:12px; text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Ghost VPN Proxy</h1>
+    <div class="status"><span id="dot" class="dot"></span><span id="state">Proxy OFF</span></div>
+  </header>
+  <button id="toggle">Connect</button>
+  <label for="server">Server</label>
+  <select id="server"></select>
+  <div class="ip"><span id="ip">&nbsp;</span><button id="check">Check IP</button></div>
+  <div id="warn"></div>
+  <div id="msg"></div>
+  <footer><button id="opts">Manage servers</button></footer>
+</div>
+<script src="shared.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
